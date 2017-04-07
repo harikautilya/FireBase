@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sample and APIs</string>
+    <string name="mobile_vision">Mobile Vision</string>
+    <string name="PLACE_key">AIzaSyBs8e7L5MjYctgmq5JaAMLaAleD7w4dB78</string>
+    <string name="API_KEY">AIzaSyDerJOzV3bgEOsbe15pc6FkaShZFbb2g5Q</string>
+    <string name="error_player" >There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="fullscreen_tutorial">This is a demo which shows how to handle fullscreen behaviour. This activity has differents layouts for portrait, landscape and fullscreen. The user can enter fullscreen either by using the player controller or programmatically by the programmer (here using a button). If your activity does not have a landscape layout, you can choose to automatically enter fullscreen when the device is rotated to landscape orientation.</string>
+    <string name="enter_fullscreen">Enter Fullscreen</string>
+    <string name="landscape_fullscreen">Always fullscreen in landscape</string>
+
+</resources>
