@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.nfc.Tag;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -50,6 +51,7 @@ public class MobileVision extends AppCompatActivity {
 
     private static final int REQUEST_TAKE_PHOTO = 1;
     private String TAG=getCallingPackage();
+    SparseArray<Face> faces;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -92,7 +94,7 @@ public class MobileVision extends AppCompatActivity {
         if (detector.isOperational()) {
             Log.d(TAG,"CHECKING AND VERFIYING ");
             Frame frame = new Frame.Builder().setBitmap(bitmap).build();
-            SparseArray<Face> faces = detector.detect(frame);
+            faces = detector.detect(frame);
             Log.d("Check","success detected");
             for (int i = 0; i < faces.size(); ++i) {
                 Log.d("Check","success");
@@ -104,6 +106,10 @@ public class MobileVision extends AppCompatActivity {
                     Log.d("FACE SUCCESS  "+landmark.getType(),cx+","+cy);
                 }
             }
+        }
+        else
+        {
+            Toast.makeText(context,"DOWALOADING META DATA PLEASE WAIT...",Toast.LENGTH_SHORT).show();
         }
         detector.release();
     }
@@ -124,4 +130,15 @@ public class MobileVision extends AppCompatActivity {
         }
     }
 
+    class background extends AsyncTask<Void, Void ,Void>
+    {
+
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            detectFaces();
+            return null;
+        }
+    }
 }
